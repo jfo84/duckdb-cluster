@@ -62,8 +62,12 @@ GEN=ninja make
 ./build/release/test/unittest --test-dir . "test/*"
 ```
 
-This builds DuckDB from the `duckdb` submodule along with the extension. The loadable extension is at
-`build/release/extension/cluster/cluster.duckdb_extension`.
+This builds DuckDB from the `duckdb` submodule along with the extension. To try it in the shell it built,
+load the unsigned extension:
+
+```sh
+./build/release/duckdb -unsigned -c "LOAD 'build/release/extension/cluster/cluster.duckdb_extension'" -c "SELECT upgma(0, 1, 0.5)"
+```
 
 ## License
 
